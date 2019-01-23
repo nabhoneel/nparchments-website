@@ -1,0 +1,25 @@
+.PageNotFound {
+	height: 95vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	flex-direction: column;
+
+	.main-text {
+		font-size: 10em;
+	}
+
+	.sub-text {
+		font-size: 2em;
+		text-align: center;
+		padding: 1em;
+	}
+
+	.go-back {
+		text-align: center;
+	}
+
+	.btn {
+		margin: 0.5em;
+	}
+}
