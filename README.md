@@ -6,7 +6,6 @@
 <h1 align="center">
 	nparchments.com
  </h1>
- <hr />
 
 ## Portfolio + blog
 Uses the WP REST API v2 and obtains blog data from my free WordPress.com blog
