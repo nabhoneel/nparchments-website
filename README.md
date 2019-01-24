@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
+  <a href="https://www.nparchments.com">
     <img alt="nparchments logo" src="https://nparchments.com/icons/icon-48x48.png" width="60" />
   </a>
 </p>
