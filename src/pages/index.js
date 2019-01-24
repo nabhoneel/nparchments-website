@@ -9,7 +9,7 @@ import './index.scss';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" keywords={[`nparchments.com`, `Nabhoneel`, `Majumdar`, `Developer`, `Photographer`]} />
     <div className="Home">
 
         <header id="showcase">
@@ -20,7 +20,7 @@ const IndexPage = () => (
           </div>
 
           <div className="typewriter">
-            <h1>Hello! Welcome to my coordinates.</h1>
+            <h1>Welcome to my coordinates!</h1>
           </div>
         </header>
 
@@ -33,6 +33,9 @@ const IndexPage = () => (
             <p>
               I am a full stack developer currently pursuing a master's degree in Computer Science,<br />
               with a keen interest in web development and gradually delving into machine learning.
+            </p>            
+            <p style={{ paddingTop: '1em' }}>
+              When I'm not cooped up in my room, nerd-ing away, I hop around from place to place with my Canon + Tokina camera kit and my tripod.
             </p>            
           </div>          
         </section>

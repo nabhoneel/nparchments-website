@@ -69,7 +69,7 @@ class Header extends Component {
               <Link className="navbar-link" to="/blog">Blog</Link>
             </li>
             <li className="navbar-item">
-              <Link className="navbar-link" to="/photos">Photogrid</Link>
+              <Link className="navbar-link" to="/photographs">Photogrid</Link>
             </li>
             <li className="navbar-item">
               <Link className="navbar-link" to="/contact">Contact</Link>
