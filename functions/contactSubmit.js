@@ -2,71 +2,99 @@ const nodemailer = require('nodemailer');
 
 exports.handler = (event, context, callback) => {
 
-	const sendEmail = async contents => {
-		console.log(contents.name);
-		console.log(contents.email);
-		console.log(contents.message);		
+  const sendEmail = async contents => {
+    console.log(contents.name);
+    console.log(contents.email);
+    console.log(contents.message);
 
-		let transporter = nodemailer.createTransport({
-			host: "mail.nparchments.com",
-			port: 465,
-			secure: true,
-			auth: {
-				// user: account.user,
-				// pass: account.pass
-				user: "email@nparchments.com",
-				pass: "Being her Alien 1620"
-			},
-			tls: {
-				rejectUnauthorized: false
-			}
-		});		
+    let SETUP, HOST, PORT, USER, PASS;
 
-		let mailOptions = {
-			from: '"Nabhoneel Majumdar" <email@nparchments.com>',
-			to: contents.email,
-			subject: "Hello! Thanks for reaching out!",
-			text: "Thanks for contacting me! I'll get back to you soon :)",
-			html: getEmail(contents.name, contents.message),
-		};	
+    if(process.env.SETUP == 'production') {
+      SETUP = 'production',
+      HOST = process.env.EMAIL_HOST,
+      PORT = process.env.EMAIL_PORT,
+      USER = process.env.EMAIL_USERNAME,
+      PASS = process.env.EMAIL_PASSWORD
+    } else {
+      const account = await nodemailer.createTestAccount();
 
-		let info = await transporter.sendMail(mailOptions);
-		console.log(info);
-		
-		mailOptions = {
-			from: '"Nabhoneel Majumdar" <email@nparchments.com>',
-			to: "nabhoneel.95@gmail.com",
-			subject: `[Contact form] ${contents.name} <${contents.email}>`,
-			text: contents.message
-		};
-		
-		info = await transporter.sendMail(mailOptions);
-		console.log(info);
-		
-		// console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-	}
+      SETUP = 'development',
+      HOST = "smtp.ethereal.email",
+      PORT = 587,
+      USER = account.user,
+      PASS = account.pass      
+    }
 
-	const submitContactForm = () => {		
-		sendEmail(JSON.parse(event.body));
+    console.log(SETUP);
+    console.log(HOST);
+    console.log(PORT);
+    console.log(USER);
+    console.log(PASS);
 
-		callback(null, {
-			statusCode: 200,
-			headers: {
-				'Access-Control-Allow-Origin': '*',
-				'Access-Control-Allow-Credentials': true,
-			},
-			body: JSON.stringify({
-				status: 'success'
-			})
-		});
-	}
-	
-	submitContactForm();
-	
+    let transporter = nodemailer.createTransport({
+      host: HOST,
+      port: PORT,
+      secure: SETUP=='development'?false:true,
+      auth: {
+        user: USER,
+        pass: PASS
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    let mailOptions = {
+      from: '"Nabhoneel Majumdar" <email@nparchments.com>',
+      to: contents.email,
+      subject: "Hello! Thanks for reaching out!",
+      text: "Thanks for contacting me! I'll get back to you soon :)",
+      html: getEmail(contents.name, contents.message),
+    };
+
+    let info = await transporter.sendMail(mailOptions);
+    console.log(info);
+
+    if (SETUP == 'development') {
+      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    }
+
+    mailOptions = {
+      from: '"Nabhoneel Majumdar" <email@nparchments.com>',
+      to: "nabhoneel.95@gmail.com",
+      subject: `[Contact form] ${contents.name} <${contents.email}>`,
+      text: contents.message
+    };
+
+    info = await transporter.sendMail(mailOptions);
+    console.log(info);
+
+    if (SETUP == 'development') {
+      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    }
+  }
+
+  const submitContactForm = () => {
+    sendEmail(JSON.parse(event.body));
+
+    callback(null, {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
+      },
+      body: JSON.stringify({
+        status: 'success'
+      })
+    });
+  }
+
+  submitContactForm();
+
 }
 
 const getEmail = (name, message) => {
-	let email = `
+  let email = `
 
 	<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head>
     <!--[if gte mso 9]><xml>
@@ -397,5 +425,5 @@ a[x-apple-data-detectors=true] {
 
 	`
 
-	return email;
+  return email;
 }

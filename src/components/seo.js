@@ -27,6 +27,10 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: title,
               },
               {
+                property: `og:image`,
+                content: data.site.siteMetadata.icon,
+              },
+              {
                 property: `og:description`,
                 content: metaDescription,
               },
@@ -90,6 +94,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        icon
       }
     }
   }
