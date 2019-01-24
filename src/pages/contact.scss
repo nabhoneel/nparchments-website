@@ -25,6 +25,14 @@
 	width: 50%;
 }
 
+@media (max-width: 576px) {
+	.form-section {
+		width: 100%;
+		border-radius: 0;
+		box-shadow: none;
+	}
+}
+
 input, .btn, .label, textarea {
 	margin: 10px 0;
 }
