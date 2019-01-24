@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://cocky-wright-16d6be.netlify.com/icons/icon-48x48.png" width="60" />
+  <a href="https://www.nparchments.com">
+    <img alt="nparchments logo" src="https://nparchments.com/icons/icon-48x48.png" width="60" />
   </a>
 </p>
 <h1 align="center">
