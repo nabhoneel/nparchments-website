@@ -5,11 +5,12 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 import logo from '../images/logo.svg';
+import favicon from '../images/logo.png';
 import './index.scss';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`nparchments.com`, `Nabhoneel`, `Majumdar`, `Developer`, `Photographer`]} />
+    <SEO title="Home" keywords={[`nparchments.com`, `Nabhoneel`, `Majumdar`, `Developer`, `Photographer`]} image={favicon} />
     <div className="Home">
 
         <header id="showcase">
