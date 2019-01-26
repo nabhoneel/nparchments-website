@@ -6,6 +6,7 @@ module.exports = {
     subtitle: `All thing photographed and written down`,
     description: `My portfolio and a few articles about my wherabouts - here and there`,
     author: `@nabhoneel`,
+    siteUrl: 'https://www.nparchments.com'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

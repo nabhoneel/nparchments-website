@@ -30,7 +30,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
               },
               {
                 property: `og:image`,
-                content: image || defaultImage,
+                content: `${data.site.siteMetadata.siteUrl}${ image || defaultImage }`,
               },
               {
                 property: `og:description`,
@@ -96,6 +96,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        siteUrl
       }
     }
   }
