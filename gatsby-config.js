@@ -18,7 +18,8 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-image`,
+    `gatsby-plugin-sharp`,    
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -47,7 +48,10 @@ module.exports = {
         // Set how many simultaneous requests are sent at once.
         // concurrentRequests: 10,        
         // // Blacklisted routes using glob patterns
-        excludedRoutes: ["**/*/*/about"],
+        excludedRoutes: [
+          "**/*/*/about",
+          "**/*/*/photographs"
+        ],
         auth: {
           wpcom_app_clientSecret: "NmcaZDE0LSkh6lunt1M9nTpeFvJVPRUV8A38RuaxBhc53NmsUahsoxdK8jBkBSG1",
           wpcom_app_clientId: "58269",
@@ -57,6 +61,12 @@ module.exports = {
           // jwt_pass: "gilaboo",
         },
       },
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: "nabhoneel_"
+      }
     },
   ],
   developMiddleware: app => {

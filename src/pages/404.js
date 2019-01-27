@@ -15,7 +15,7 @@ const NotFoundPage = () => (
         404
       </div>
       <div className="sub-text">
-        that same old warning<br /><i class="em em-tired_face"></i>        
+        that same old warning<br /><i className="em em-tired_face"></i>        
       </div>
       <div className="go-back">
         Try a different, <i>known</i> page:<br />
