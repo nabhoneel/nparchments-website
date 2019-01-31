@@ -9,11 +9,27 @@ import './layout.scss'
 const renderDependencies = () => {
   const hostname = window && window.location && window.location.hostname
   if (hostname.indexOf('localhost') != -1) {
-    import('../../node_modules/bootstrap/dist/css/bootstrap.min.css')
-    return <></>
-  } else
+    // development env -> import bootstrap CSS [JS files aren't getting loaded in order]
+    import('bootstrap/dist/css/bootstrap.min.css')
+    import('jquery/dist/jquery')
     return (
-      <>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        />
+
+        <script
+          type="text/javascript"
+          src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        />
+      </Helmet>
+    )
+  } // production env
+  else
+    return (
+      <Helmet>
         <link
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -26,67 +42,61 @@ const renderDependencies = () => {
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
           crossorigin="anonymous"
         />
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"
+
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
         />
+
         <script
-          src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"
+          type="text/javascript"
+          src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
         />
-      </>
-    );
+      </Helmet>
+    )
 }
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+const Layout = ({ children, footerBackground, footerForeground }) => {
+  const back = footerBackground || "rgb(214, 214, 214)";
+  const fore = footerForeground || "#000";
+  
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <>
-        <Helmet>
+      `}
+      render={data => (
+        <>
           {renderDependencies()}
 
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-          />
+          <Header />
 
-          <script
-            type="text/javascript"
-            src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-          />
-        </Helmet>
-
-        <Header />
-
-        <div style={{}}>
-          {children}
-          <footer
-            style={{
-              textAlign: 'center',
-              padding: '1em',
-              background: 'rgb(214, 214, 214)',
-              width: '100%',
-            }}
-          >
-            Rebel © {new Date().getFullYear()}
-          </footer>
-        </div>
-      </>
-    )}
-  />
-)
+          <div style={{}}>
+            {children}
+            <footer
+              style={{
+                textAlign: 'center',
+                padding: '1em',
+                background: back,
+                color: fore,
+                width: '100%',
+              }}
+            >
+              Rebel © {new Date().getFullYear()}
+            </footer>
+          </div>
+        </>
+      )}
+    />
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
