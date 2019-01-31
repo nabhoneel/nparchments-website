@@ -1,7 +1,70 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 .Photographs {
-	padding: 4em 0;
+	padding: 0 0 4em;
 	background: linear-gradient(204deg, #ffffff 10%, #adadad 100%);
 }
+
+/* Slick slider customizations: */
+
+.slick-slider div {
+	height: 90vh;
+}
+
+picture img {
+	width: min-content !important;
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+.slick-prev:before,
+.slick-next:before {
+	font-family: "slick";
+	font-size: 40px;
+	line-height: 1;
+	color: rgb(211, 211, 211);
+	opacity: 0.75;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+	left: 10px;
+	z-index: 100;
+}
+
+.slick-next {
+	right: 10px;
+	z-index: 100;
+}
+
+.slick-prev:before {
+	content: "‹";
+}
+
+[dir="rtl"] .slick-prev:before {
+	content: "›";
+}
+
+[dir="rtl"] .slick-next {
+	top: 70px;
+	right: auto;
+}
+
+.slick-next:before {
+	content: "›";
+}
+
+[dir="rtl"] .slick-next:before {
+	content: "‹";
+}
+
+.gatsby-image-wrapper {
+	background: black;
+}
+
+/* REST (Instagram feed link, and preview) */
 
 @media (max-width: 700px) {
 	.top-title a {
@@ -56,42 +119,23 @@
 		.content-overlay {
 			overflow: hidden;
 			background: rgba(0, 0, 0, 0.7);
-			position: fixed;
+			// position: fixed;
 			height: 100%;
 			width: 100%;
 			left: 0;
 			top: 0;
 			bottom: 0;
 			right: 0;
-			opacity: 0;
+			// opacity: 0;
 			-webkit-transition: all 0.4s ease-in-out 0s;
 			-moz-transition: all 0.4s ease-in-out 0s;
-			transition: all 0.4s ease-in-out 0s;			
+			transition: all 0.4s ease-in-out 0s;
 		}
 
 		&:hover .content-overlay {
-			opacity: 1;
+			// opacity: 1;
 		}
 	}
-
-	// .photo-grid-element {
-	// 	&:after {
-	// 		content: '\A';
-	// 		position: absolute;
-	// 		width: 100%;
-	// 		height: 100%;
-	// 		top: 0;
-	// 		left: 0;
-	// 		background: rgba(0, 0, 0, 0.6);
-	// 		opacity: 0;
-	// 		transition: all 1s;
-	// 		-webkit-transition: all 1s;
-	// 	}
-
-	// 	&:hover:after {
-	// 		opacity: 0.5;
-	// 	}
-	// }
 
 	img {
 		width: 100%;

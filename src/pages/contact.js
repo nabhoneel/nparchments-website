@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -21,7 +20,7 @@ class Contact extends Component {
 		});
 		
 		const reply = await response.json();
-		if(reply.status == 'success') {
+		if(reply.status === 'success') {
 			this.setState({status: true});
 			setTimeout(() => {
 				this.setState({name: '', email: '', message: '', status: false});
@@ -59,7 +58,7 @@ class Contact extends Component {
 								this.setState({message: event.target.value});
 							}} />
 							<button className="submit btn btn-outline-primary">Send!</button>
-							{ this.state.status == true ? this.loadAlert() : null }							
+							{ this.state.status === true ? this.loadAlert() : null }							
 						</div>				
 					</form>
 				</div>
