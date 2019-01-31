@@ -43,10 +43,6 @@ module.exports = {
         hostingWPCOM: true,
         useACF: false,
         verboseOutput: true,
-        // Set how many pages are retrieved per API request.
-        // perPage: 100,        
-        // Set how many simultaneous requests are sent at once.
-        // concurrentRequests: 10,        
         // // Blacklisted routes using glob patterns
         excludedRoutes: [
           "**/*/*/about",
@@ -57,15 +53,14 @@ module.exports = {
           wpcom_app_clientId: "58269",
           wpcom_user: "nabhoneel.95e@gmail.com",
           wpcom_pass: "fortified@RamB319",
-          // jwt_user: "rebel",
-          // jwt_pass: "gilaboo",
         },
       },
     },
     {
       resolve: `gatsby-source-instagram`,
       options: {
-        username: "nabhoneel_"
+        // access_token: "1550641884.73e60e1.d63cb1f5651b485ba2aac3a3eecf2a54"
+        username: `nabhoneel_`,
       }
     },
   ],

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import defaultImage from '../images/logo.png';
+import defaultImage from '../images/logo.png'
 
-function SEO({ description, lang, meta, keywords, title, image }) {  
+function SEO({ description, lang, meta, keywords, title, image }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -30,7 +30,8 @@ function SEO({ description, lang, meta, keywords, title, image }) {
               },
               {
                 property: `og:image`,
-                content: `${data.site.siteMetadata.siteUrl}${ image || defaultImage }`,
+                content: `${data.site.siteMetadata.siteUrl}${image ||
+                  defaultImage}`,
               },
               {
                 property: `og:description`,

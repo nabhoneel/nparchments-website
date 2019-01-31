@@ -20,12 +20,11 @@ const NotFoundPage = () => (
       <div className="go-back">
         Try a different, <i>known</i> page:<br />
         <div className="button-section">
-          <Link to={ '/' } className="btn btn-outline-primary">Home</Link>
-          <Link to={ '/' + 'contact' } className="btn btn-outline-primary">Contact Me</Link>
+          <Link to={ '/' } className="btn btn-outline-primary">Home</Link>   
           <Link to={ '/' + 'blog' } className="btn btn-outline-primary">Blog</Link>
-          <Link to={ '/' + 'about' } className="btn btn-outline-primary">About Me</Link>
           <Link to={ '/' + 'photographs' } className="btn btn-outline-primary">Photographs</Link>
           <Link to={ '/' + 'projects' } className="btn btn-outline-primary">Portfolio</Link>
+          <Link to={ '/' + 'contact' } className="btn btn-outline-primary">Contact Me</Link>
         </div>        
       </div>
     </div>
