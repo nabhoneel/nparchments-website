@@ -1,0 +1,116 @@
+$borderRadius: 5px;
+
+.Blog {
+  background: linear-gradient(45deg, #e0e0e0 0%, #f3f3f3 100%);
+  padding: 5em 0;
+}
+
+.blog-posts-grid-element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #fff;
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
+  transition: all 0.3s ease;
+  border-radius: $borderRadius;
+  margin: 1em 0;
+
+  &:hover {
+    box-shadow: 2px 4px 8px 0 rgba(46, 61, 73, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-posts-grid-element {
+    display: block;
+  }
+
+  .blog-post-grid-element-featured-image {
+    height: auto !important;
+    img {
+      width: 100%;
+      height: auto !important;
+      border-top-left-radius: $borderRadius;
+      border-top-right-radius: $borderRadius;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+
+  .blog-post-grid-element-text {
+    padding-top: 1em !important;
+  }
+}
+
+.blog-posts-grid-element:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .blog-posts-grid-element:nth-child(n) {
+    flex-direction: column;
+  }
+}
+
+.blog-post-grid-element-featured-image,
+.blog-post-grid-element-text {
+  flex-basis: 0;
+  flex-grow: 1;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+  }
+}
+
+.blog-post-grid-element-text {
+  padding: 0 1.5em 1em;
+}
+
+.blog-post-grid-element-featured-image {
+  height: 300px;
+}
+
+@media (max-width: 1050px) {
+  .blog-post-grid-element-featured-image {
+    height: 350px;
+  }
+}
+
+.blog-posts-grid-element:nth-child(odd)
+  .blog-post-grid-element-featured-image
+  img {
+  float: right;
+  border-top-right-radius: $borderRadius;
+  border-bottom-right-radius: $borderRadius;
+}
+
+.blog-posts-grid-element:nth-child(even)
+  .blog-post-grid-element-featured-image
+  img {
+  float: left;
+  border-top-left-radius: $borderRadius;
+  border-bottom-left-radius: $borderRadius;
+}
+
+.blog-post-grid-element-text-categories {
+  display: flex;
+  margin: 1em 0;
+  div {
+    border-radius: 4px;
+    background: #000;
+    color: white;
+    padding: 5px 8px;
+    margin-right: 3px;
+  }
+}
+
+.read-more {
+  margin: 0 0 2em;
+}
+
+.older-posts {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}

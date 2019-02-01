@@ -1,0 +1,138 @@
+.Home {
+  .logo {
+    text-align: center;
+    width: 100%;
+  }
+
+  .logo-container {
+    width: 70%;
+    margin: auto;
+    padding-bottom: 1em;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Circular', sans-serif;
+    font-size: 17px;
+    color: white;
+    line-height: 1.6;
+  }
+
+  #showcase {
+    z-index: 1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(46, 55, 64, 0.59)), url('../images/landing-page-backdrop.jpg') #000 no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /*horizontal->vertical*/
+    justify-content: center;
+    align-items: center;
+  }
+
+  .typewriter h1 {
+    color: #fff;
+    font-family: 'Circular';
+    font-size: 28px;
+    margin-bottom: 3em;
+    overflow: hidden; /* hide till animate */
+    border-right: .15em solid orange; /* cursor */
+    white-space: nowrap;
+    margin: 0 auto; /* shift to left as typing happens */
+    letter-spacing: .20em;
+    animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+  }
+
+  /* The typing effect */
+
+  @keyframes typing {
+    from {
+      width: 0
+    }
+    to {
+      width: 100%
+    }
+  }
+
+  /* The typewriter cursor effect */
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent
+    }
+    50% {
+      border-color: white;
+    }
+  }
+}
+
+@media (min-width: 912px) {
+  .logo-container {
+    width: 30% !important;
+  }
+}
+
+@media(min-width: 600px) and (max-width: 912px) {
+  .logo-container {
+    width: 40% !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .typewriter h1 {
+    font-size: 22px !important;
+  }
+}
+
+@media (max-width: 535px) {
+  .typewriter h1 {
+    font-size: 18px !important;
+  }
+}
+
+.about-me {
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div.about-me-text {
+    font-family: 'Circular', sans-serif;
+    font-size: 2em;    
+  }
+}
+
+@media (min-width: 1301px) {
+  div.about-me-text {
+    padding: 5em 10em;
+  }
+}
+
+@media (max-width: 1300px) {
+  div.about-me-text {
+    padding: 5em 7em;
+  }
+}
+
+@media (max-width: 1110px) {
+  div.about-me-text {
+    padding: 5em 4em;
+  }
+}
+
+@media (max-width: 912px) {
+  div.about-me-text {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-me {
+    padding: 5em 0 3em 0;
+  }
+  div.about-me-text {
+    padding: 2em !important;
+  }
+}
