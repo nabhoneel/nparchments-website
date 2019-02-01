@@ -50,7 +50,7 @@ module.exports = {
         anonymize: true,
       },
     },
-    'gatsby-plugin-offline',
+   // 'gatsby-plugin-offline',
     'gatsby-plugin-sass',
     {
       resolve: "gatsby-source-wordpress",
