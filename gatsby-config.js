@@ -33,8 +33,8 @@ module.exports = {
         name: `Nabhoneel's Parchments`,
         short_name: `nparchments`,
         start_url: `/`,
-        background_color: `#4568c6`,
-        theme_color: `#4568c6`,
+        background_color: `#455A64`,
+        theme_color: `#455A64`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
@@ -50,7 +50,7 @@ module.exports = {
         anonymize: true,
       },
     },
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
     'gatsby-plugin-sass',
     {
       resolve: "gatsby-source-wordpress",

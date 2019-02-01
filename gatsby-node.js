@@ -46,55 +46,33 @@ exports.createPages = ({
 
   return new Promise((resolve, reject) => {
 
-    graphql(pageQuery)
+    graphql(postsQuery)
       .then(result => {
         if (result.errors) {
           console.log(result.errors)
           reject(result.errors)
         }
 
-        const pageTemplate = path.resolve("./src/templates/page.js");
+        const postTemplate = path.resolve("./src/templates/post.js");
+        const blogTemplate = path.resolve("./src/pages/blog.js");
 
-        _.each(result.data.allWordpressPage.edges, edge => {
+        // Create Posts
+        createPage({
+          path: `/blog`,
+          component: slash(blogTemplate)
+        });
+
+        _.each(result.data.allWordpressPost.edges, edge => {
           createPage({
             path: `/${edge.node.slug}/`,
-            component: slash(pageTemplate),
+            component: slash(postTemplate),
             context: {
               id: edge.node.id,
             },
           })
         })
-      })
-
-      // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
-      .then(() => {
-        graphql(postsQuery).then(result => {
-          if (result.errors) {
-            console.log(result.errors)
-            reject(result.errors)
-          }
-
-          const postTemplate = path.resolve("./src/templates/post.js");
-          const blogTemplate = path.resolve("./src/pages/blog.js");
-
-          // Create Posts
-          createPage({
-            path: `/blog`,
-            component: slash(blogTemplate)
-          });
-
-          _.each(result.data.allWordpressPost.edges, edge => {
-            createPage({
-              path: `/${edge.node.slug}/`,
-              component: slash(postTemplate),
-              context: {
-                id: edge.node.id,
-              },
-            })
-          })
-          resolve()
-        })
-      })
+        resolve()
+      });
     // ==== END POSTS ====
   })
 }

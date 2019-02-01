@@ -26,7 +26,6 @@ class Header extends Component {
     if (document.body.clientWidth <= 896) {
       sideMenu.style.width = "0px";
     } else {
-      console.log(document.documentElement.clientWidth + "(else)");
       document.querySelector(".side-menu").style.width = "100%";
     }
   }

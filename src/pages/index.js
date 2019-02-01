@@ -7,6 +7,7 @@ import SEO from '../components/seo';
 import logo from '../images/logo.svg';
 import favicon from '../images/logo.png';
 import './index.scss';
+// import { graphql } from 'gatsby';
 
 const IndexPage = () => (
   <Layout>
@@ -46,3 +47,16 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+// export const query = graphql`
+// {
+//   allFile(filter: {name: {eq: "landing-page-backdrop"} }) {
+//     edges {
+//       node {
+//         id
+//         relativePath
+//       }
+//     }
+//   }
+// }
+// `

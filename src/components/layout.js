@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 
 import Header from './header'
 import './layout.scss'
+import SocialMedia from './socialMedia';
 
 const renderDependenies = () => {
   if (process.env.SETUP === 'production') {
@@ -58,7 +59,7 @@ const renderDependenies = () => {
 }
 
 const Layout = ({ children, footerBackground, footerForeground }) => {
-  const back = footerBackground || 'rgb(214, 214, 214)'
+  const back = footerBackground || '#EDEDED'
   const fore = footerForeground || '#000'
 
   return (
@@ -88,8 +89,9 @@ const Layout = ({ children, footerBackground, footerForeground }) => {
                 color: fore,
                 width: '100%',
               }}
-            >
+            >              
               Rebel © {new Date().getFullYear()}
+              <SocialMedia />
             </footer>
           </div>
         </>
