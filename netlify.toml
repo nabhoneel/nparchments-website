@@ -9,7 +9,7 @@
 
 [[redirects]]
   from = "http://nparchments.netlify.com/*"
-  to = "http://www.nparchments.com/:splat"
+  to = "https://www.nparchments.com/:splat"
   status = 301
   force = true
 
