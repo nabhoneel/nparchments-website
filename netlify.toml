@@ -18,3 +18,15 @@
   to = "https://www.nparchments.com/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "http://nparchments.com/*"
+  to = "https://www.nparchments.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://nparchments.com/*"
+  to = "https://www.nparchments.com/:splat"
+  status = 301
+  force = true
