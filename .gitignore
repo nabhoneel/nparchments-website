@@ -68,6 +68,10 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
+# Other Gatsby files
 .prettierrc
 gatsby-ssr.js
 gatsby-browser.js
+
+# Netlify functions
+functions/
