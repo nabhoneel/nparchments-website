@@ -1,26 +1,2 @@
 [build]
   functions = "lambda"
-
-[[redirects]]
-  from = "https://nparchments.netlify.com/*"
-  to = "https://www.nparchments.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://nparchments.netlify.com/*"
-  to = "https://www.nparchments.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.nparchments.com/*"
-  to = "https://www.nparchments.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://nparchments.com/*"
-  to = "https://nparchments.com/:splat"
-  status = 301
-  force = true
